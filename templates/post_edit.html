@@ -32,28 +32,19 @@
 				>{{post.content}}</textarea>
 			</div>
 		</div>
-
+		<!-- prettier-ignore -->
 		<div class="posttags">
 			{% for tag in tags %}
 			<div class="form-check">
-				{% if tag in post.tags %}
+				
 				<input
 					class="form-check-input"
 					name="post-tags"
 					type="checkbox"
 					value="{{tag.name}}"
 					id="{{tag.id}}-{{tag.name}}"
-					checked
+					{% if tag in post.tags %} checked {% endif %}
 				/>
-				{% else %}
-				<input
-					class="form-check-input"
-					name="post-tags"
-					type="checkbox"
-					value="{{tag.name}}"
-					id="{{tag.id}}-{{tag.name}}"
-				/>
-				{% endif %}
 				<label class="form-check-label" for="{{tag.id}}-{{tag.name}}">
 					{{tag.name}}
 				</label>
